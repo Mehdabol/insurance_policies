@@ -1,0 +1,130 @@
+.ag-layout-normal {
+  .ag-body-viewport.ag-layout-normal.ag-row-no-animation {
+    overflow: hidden;
+  }
+
+  .ag-body-horizontal-scroll-viewport {
+    overflow: hidden;
+  }
+
+  &:hover {
+    .ag-body-viewport.ag-layout-normal.ag-row-no-animation {
+      overflow: auto;
+    }
+
+    .ag-body-horizontal-scroll-viewport {
+      overflow: auto;
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c4c4c4;
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c4c4c4;
+  }
+}
+
+.ag-theme-material .ag-rtl .ag-cell {
+  direction: rtl !important;
+}
+
+.ag-theme-material .ag-group-expanded .ag-icon-contracted:empty {
+  float: left;
+}
+
+.ag-theme-material .ag-header-cell-label .ag-header-cell-text {
+  white-space: normal !important;
+}
+
+.ag-theme-material .ag-header-cell, .ag-theme-material .ag-header-group-cell {
+  line-height: normal !important;
+}
+
+.ag-theme-material .ag-header-cell-label {
+  height: auto !important;
+}
+
+.ag-theme-material .ag-rtl .ag-side-bar, .ag-theme-material .ag-rtl .ag-tool-panel-wrapper {
+  border-right: 1px solid #BDC3C7 !important;
+}
+
+.ag-theme-material .ag-header {
+  min-height: 77px !important;
+  height: 54px !important;
+  padding: 6px !important;
+  border-top: 1px solid #BDC3C7 !important;
+}
+
+.ag-root-wrapper-body.ag-layout-normal {
+  border-right: 1px solid #BDC3C7 !important;
+}
+
+//.ag-theme-material .ag-side-bar .ag-side-buttons {
+//  background: #f5f7f7;
+//}
+.ag-theme-material .ag-side-bar {
+  background-color: #f5f7f7 !important;
+}
+
+.ag-theme-material {
+
+  .ag-stub-cell .ag-loading-icon {
+    float: initial !important;
+    display: none !important;
+
+  }
+
+
+  .ag-row-odd {
+    background-color: #bed3f345;
+  }
+}
+
+
+.ag-theme-material .ag-stub-cell .ag-loading-text {
+  float: right !important;
+  margin-right: 10px;
+}
+
+.ag-theme-material .ag-header-cell::after, .ag-theme-material .ag-header-group-cell::after {
+  height: 31px !important;
+}
+
+.container-fluid .ag-side-bar .ag-side-buttons {
+  width: 30px !important;
+}
+
+//.ag-theme-material .ag-side-bar .ag-side-buttons {
+//  border-left: 1px solid #fbf9f9;
+//  border-right: 1px solid gainsboro;
+//}
+
+//.ag-theme-material .ag-side-bar .ag-side-buttons .ag-selected button{
+//  border-color: transparent;
+//}
+
+.ag-theme-material .ag-rtl .ag-header-group-cell-label {
+  justify-content: center;
+}
+
+.ag-header-cell {
+  border-left: 1px solid #c4c4c4 !important;
+}
+
+.ag-header-icon.ag-header-cell-menu-button {
+  display: none;
+}

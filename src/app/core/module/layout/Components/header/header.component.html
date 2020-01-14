@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg main-navbar">
+  <div class="form-inline mr-auto">
+    <ul class="navbar-nav mr-3">
+      <li>
+        <a data-toggle="sidebar" class="nav-link nav-link-lg
+      collapse-btn"> <i class="fa fa-bars" data-feather="align-justify"></i>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link nav-link-lg fullscreen-btn">
+          <i class="fa fa-window-maximize" data-feather="maximize"></i>
+        </a>
+      </li>
+      <li>
+        <form class="form-inline mr-auto">
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="جستجو" aria-label="جستجو کردن" data-width="200">
+            <button class="btn" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </div>
+  <ul class="navbar-nav navbar-right">
+   
+    <app-notification *ngIf="hasLogin"></app-notification>
+    <li class="dropdown">
+      <a data-toggle="dropdown"
+         class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+        <i class="fa fa-user-alt"></i>
+
+        <!--<img alt="تصویر"-->
+        <!--src="assets/img/user.png"-->
+        <!--class="user-img-radious-style">-->
+        <span class="d-sm-none d-lg-inline-block"></span></a>
+      <div class="dropdown-menu dropdown-menu-right pullDown" *ngIf="hasLogin">
+        <a class="dropdown-item has-icon custom-text-alert" (click)="onchangePass()" >
+          <i class="fas fa-key"></i>
+          تغییر رمز عبور
+        </a>
+        <a class="dropdown-item has-icon custom-text-alert" (click)="onSingOut()" >
+          <i class="fas fa-sign-out-alt"></i>
+          خروج
+        </a>
+      </div>
+      <div class="dropdown-menu dropdown-menu-right pullDown" *ngIf="!hasLogin">
+      <a class="dropdown-item has-icon custom-text-alert" (click)="onSingOut()" >
+        <i class="fas fa-sign-in-alt"></i>
+        ورود به سامانه
+      </a>
+
+    </div>
+    </li>
+  </ul>
+</nav>

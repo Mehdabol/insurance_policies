@@ -12,7 +12,7 @@ export class SidebarComponent implements OnInit {
     {
       title: 'بیمه  مسافرتی', icon: 'fa fa-home', hasChile: true, subMenu: [
         {title: 'ورود به ایران', path: 'entrance-travel-insurance', hasChile: false},
-        {title: 'خروج از ایران', path: 'agencies', hasChile: false},
+        // {title: 'خروج از ایران', path: 'agencies', hasChile: false},
       ]
     },
   ];

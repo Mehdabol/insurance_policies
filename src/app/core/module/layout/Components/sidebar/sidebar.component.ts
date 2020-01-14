@@ -8,15 +8,13 @@ import {Component, OnInit} from '@angular/core';
 export class SidebarComponent implements OnInit {
   token;
   menu = [
-    {title: 'خانه', icon: 'fa fa-home', path: 'health-centers', hasChile: false},
-    // {
-    //   title: 'اطلاع رسانی', icon: 'fa fa-home', hasChile: true, subMenu: [
-    //     {title: 'مراکز درمانی', path: 'health-centers', hasChile: false},
-    //     {title: 'نمایندگان', path: 'agencies', hasChile: false},
-    //     {title: 'شعب', path: 'dashboard1', hasChile: false},
-    //     {title: 'خدمات بیمه ای', path: 'dashboard1', hasChile: false},
-    //   ]
-    // },
+    // {title: 'خانه', icon: 'fa fa-home', path: 'health-centers', hasChile: false},
+    {
+      title: 'بیمه  مسافرتی', icon: 'fa fa-home', hasChile: true, subMenu: [
+        {title: 'ورود به ایران', path: 'entrance-travel-insurance', hasChile: false},
+        {title: 'خروج از ایران', path: 'agencies', hasChile: false},
+      ]
+    },
   ];
 
   constructor() {

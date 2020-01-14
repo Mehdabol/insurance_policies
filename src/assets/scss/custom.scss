@@ -343,6 +343,32 @@ table.table {
   }
 }
 
+.form-control, .mat-select-trigger {
+  border-color: #afafaf;
+}
+
+.custom-input {
+  text-align: left;
+}
+
+.mat-select-placeholder {
+  color: #71767b;
+  padding-left: 10px;
+}
+
+.mat-input-element {
+  width: 100%;
+  box-shadow: azure;
+  border: 1px solid #afafaf;
+  height: 42px;
+  border-radius: 4px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.mat-select-value {
+  text-align: left;
+}
 .card .card-header .form-control {
   border-radius: 5px !important;
 }

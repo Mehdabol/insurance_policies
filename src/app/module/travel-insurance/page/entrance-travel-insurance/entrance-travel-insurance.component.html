@@ -1,0 +1,69 @@
+<p> بیمه مسافرتی ورود به ایران</p>
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <form #f='ngForm'>
+              <div class="row">
+                <div class="col-md-6 mt-3">
+                  <label class="pt-1">نام به انگلیسی(first Name)</label>
+                  <input class="form-control custom-input" required type="text" name="name" ngModel>
+                </div>
+                <div class="col-md-6 mt-3">
+                  <label class="pt-1">نام خانوادگی به انگلیسی(last Name)</label>
+                  <input class="form-control custom-input" type="text" name="lastName" ngModel>
+                </div>
+                <div class="col-md-6 mt-3 ">
+                  <label class="pt-1">شماره پاسپورت(passport No)</label>
+                  <input class="form-control custom-input" type="text" name="lastName" ngModel
+                  >
+                </div>
+                <div class="col-md-6 mt-3">
+                  <label class="pt-1">جنسیت(Gender)</label>
+                  <mat-select ngModel
+                              name="gender">
+                    <mat-option></mat-option>
+                    <mat-option *ngFor="let item of genderList"
+                                [value]="item.ID">{{item.PersianTitle}}</mat-option>
+                  </mat-select>
+                </div>
+                <div class="col-md-6 mt-3">
+                  <label class="pt-1">کشور مبدا(Origin Country)</label>
+                  <mat-select ngModel
+                              name="HozurTypeID">
+                    <mat-option></mat-option>
+                    <mat-option *ngFor="let item of countryList"
+                                [value]="item.ID">{{item.PersianTitle}}</mat-option>
+                  </mat-select>
+                </div>
+                <div class="col-md-6 mt-3 ">
+                  <label class="pt-1">مدت اقامت به روز(Duration) </label>
+                  <input class="form-control custom-input" type="number"
+                         name="lastName" ngModel>
+                </div>
+                <div class="col-md-6 mt-3 ">
+                  <label class="pt-1">تاریخ تولد میلادی(Birth Date)</label>
+                  <input matInput [matDatepicker]="dp"
+                         (click)="dp.open()"  [max]="maxDate" name="date" ngModel>
+                  <mat-datepicker #dp></mat-datepicker>
+                </div>
+                <div class="col-md-6 mt-3 ">
+                  <button class="btn btn-outline-info w-100 " type="submit" (click)="formSubmit(f)"
+                          [disabled]="!f.valid"
+                          style="height: 45px;margin-top: 29px;">
+                    استعلام
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</div>

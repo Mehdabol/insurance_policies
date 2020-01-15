@@ -11,44 +11,43 @@
               <div class="row">
                 <div class="col-md-6 mt-3">
                   <label class="pt-1">نام به انگلیسی(first Name)</label>
-                  <input class="form-control custom-input" required type="text" name="name" ngModel>
+                  <input class="form-control custom-input" required type="text" name="name" [(ngModel)]="formValue.name">
                 </div>
                 <div class="col-md-6 mt-3">
                   <label class="pt-1">نام خانوادگی به انگلیسی(last Name)</label>
-                  <input class="form-control custom-input" type="text" name="lastName" ngModel>
+                  <input class="form-control custom-input" type="text" name="lastName" [(ngModel)]="formValue.lastName">
                 </div>
                 <div class="col-md-6 mt-3 ">
                   <label class="pt-1">شماره پاسپورت(passport No)</label>
-                  <input class="form-control custom-input" type="text" name="lastName" ngModel
+                  <input class="form-control custom-input" type="text" name="passNo" [(ngModel)]="formValue.passNo"
                   >
                 </div>
                 <div class="col-md-6 mt-3">
                   <label class="pt-1">جنسیت(Gender)</label>
-                  <mat-select ngModel
+                  <mat-select [(ngModel)]="formValue.gender"
                               name="gender">
                     <mat-option></mat-option>
                     <mat-option *ngFor="let item of genderList"
-                                [value]="item.ID">{{item.PersianTitle}}</mat-option>
+                                [value]="item.title">{{item.title}}</mat-option>
                   </mat-select>
                 </div>
                 <div class="col-md-6 mt-3">
                   <label class="pt-1">کشور مبدا(Origin Country)</label>
-                  <mat-select ngModel
-                              name="HozurTypeID">
-                    <mat-option></mat-option>
+                  <mat-select [(ngModel)]="formValue.country"
+                              name="country">
                     <mat-option *ngFor="let item of countryList"
-                                [value]="item.ID">{{item.PersianTitle}}</mat-option>
+                                [value]="item.title">{{item.title}}</mat-option>
                   </mat-select>
                 </div>
                 <div class="col-md-6 mt-3 ">
                   <label class="pt-1">مدت اقامت به روز(Duration) </label>
                   <input class="form-control custom-input" type="number"
-                         name="lastName" ngModel>
+                         name="duration" [(ngModel)]="formValue.duration">
                 </div>
                 <div class="col-md-6 mt-3 ">
                   <label class="pt-1">تاریخ تولد میلادی(Birth Date)</label>
                   <input matInput [matDatepicker]="dp"
-                         (click)="dp.open()"  [max]="maxDate" name="date" ngModel>
+                         (click)="dp.open()"  [max]="maxDate" name="date" [(ngModel)]="formValue.date">
                   <mat-datepicker #dp></mat-datepicker>
                 </div>
                 <div class="col-md-6 mt-3 ">

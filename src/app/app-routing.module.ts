@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {BaseLayoutComponent} from './core/module/layout/base-layout/base-layout.component';
 import {PageDahsboardComponent} from './module/dashboard/page/page-dahsboard/page-dahsboard.component';
 import {EntranceTravelInsuranceComponent} from './module/travel-insurance/page/entrance-travel-insurance/entrance-travel-insurance.component';
+import {EntranceSodorBimeComponent} from './module/travel-insurance/page/entrance-sodor-bime/entrance-sodor-bime.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
     children: [
       {path: 'dashboard', component: PageDahsboardComponent},
       {path: 'entrance-travel-insurance', component: EntranceTravelInsuranceComponent},
+      {path: 'entrance-sodor', component: EntranceSodorBimeComponent},
     ]
   },
 ];

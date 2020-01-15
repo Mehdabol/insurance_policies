@@ -3,13 +3,13 @@ import {ApiService} from '../../../core/http/api.service';
 
 @Injectable()
 export class EntranceTravelInsuranceService {
-  url = '';
+  url = 'razitenderinquiry/api/Inquery/';
 
   constructor(private apiService: ApiService<any>) {
   }
 
   submitForm(data) {
-    return this.apiService.post(this.url, data);
+    return this.apiService.post(this.url + 'GetTripInsuranceInquiry', data);
   }
 
   getGender() {

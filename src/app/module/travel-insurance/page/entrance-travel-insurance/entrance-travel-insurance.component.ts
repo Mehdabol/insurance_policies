@@ -1,9 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EntranceTravelInsuranceService} from '../../service/entrance-travel-insurance.service';
 import {FormValidateService} from '../../../../core/services/Form-Validate.service';
 import {Router} from '@angular/router';
-import {EstealamService} from '../../service/estealam.service';
-import {GetEstelamService} from '../../service/get-estelam.service';
+import * as moment from 'jalali-moment';
 
 
 @Component({
@@ -11,14 +10,13 @@ import {GetEstelamService} from '../../service/get-estelam.service';
   templateUrl: './entrance-travel-insurance.component.html',
   styleUrls: ['./entrance-travel-insurance.component.scss']
 })
-export class EntranceTravelInsuranceComponent implements OnInit, OnDestroy {
+export class EntranceTravelInsuranceComponent implements OnInit {
   maxDate = new Date();
   genderList = [
     {id: 1, title: 'مرد'},
     {id: 2, title: 'زن'}
-
-
   ];
+  first = true;
   countryList = [
     {id: 1, title: 'iran'}
   ];
@@ -26,31 +24,18 @@ export class EntranceTravelInsuranceComponent implements OnInit, OnDestroy {
     name: '', lastName: '', passNo: '',
     gender: '', country: '', duration: '', date: ''
   };
+  reqRes = [];
   subscribe;
   constructor(private service: EntranceTravelInsuranceService,
               private router: Router,
-              private sendFormValue: EstealamService,
-              private getEstelamService: GetEstelamService,
               private validateForm: FormValidateService) {
   }
 
   ngOnInit() {
-    this.getFormValue();
     // this.getCountry();
     // this.getGender();
   }
 
-  ngOnDestroy(): void {
-    this.subscribe.unsubscribe();
-  }
-
-
-  getFormValue() {
-    this.subscribe = this.getEstelamService.getMessageEdit().subscribe(res => {
-      // res.message.formValue.date = moment(res.message.formValue.date).format('YYYY-MM-DD');
-      // this.formValue = res.message.formValue;
-    });
-  }
 
   formSubmit(form) {
     if (form.invalid) {
@@ -63,13 +48,17 @@ export class EntranceTravelInsuranceComponent implements OnInit, OnDestroy {
 
 
   submittedForm() {
-    this.router.navigate(['pages/entrance-sodor']);
     const value = {Age: 20, Duration: this.formValue.duration};
     this.service.submitForm(value).subscribe(res => {
-      debugger;
-      const data = {formValue: this.formValue, reqRes: res.Items};
-      this.sendFormValue.sendMessage(data);
+      this.formValue.date = moment(this.formValue.date).format('YYYY-MM-DD');
+      this.reqRes = res.Items;
+      this.first = false;
+
     });
+  }
+
+  onEdit() {
+    this.first = true;
   }
 
   getGender() {

@@ -31,7 +31,6 @@ export class EntranceSodorBimeComponent implements OnInit, OnDestroy {
     this.subscribe.unsubscribe();
   }
 
-
   getFormValue() {
     this.subscribe = this.sendFormValue.getMessage().subscribe(res => {
       res.message.formValue.date = moment(res.message.formValue.date).format('YYYY-MM-DD');
@@ -41,11 +40,8 @@ export class EntranceSodorBimeComponent implements OnInit, OnDestroy {
   }
 
   onEdit() {
-    debugger;
-    this.getEstelamService.sendMessageEdit('wqwqe');
-    setTimeout(() => {
-      this.onBack();
-    }, 1000);
+    this.getEstelamService.sendMessageEdit(this.formValue);
+    this.onBack();
   }
 
   onBack() {

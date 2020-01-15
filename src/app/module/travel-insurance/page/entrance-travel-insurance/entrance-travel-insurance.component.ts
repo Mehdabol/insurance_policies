@@ -32,11 +32,6 @@ export class EntranceTravelInsuranceComponent implements OnInit, OnDestroy {
               private sendFormValue: EstealamService,
               private getEstelamService: GetEstelamService,
               private validateForm: FormValidateService) {
-    this.subscribe = this.getEstelamService.getMessageEdit().subscribe(res => {
-      debugger;
-      // res.message.formValue.date = moment(res.message.formValue.date).format('YYYY-MM-DD');
-      // this.formValue = res.message.formValue;
-    });
   }
 
   ngOnInit() {
@@ -51,7 +46,10 @@ export class EntranceTravelInsuranceComponent implements OnInit, OnDestroy {
 
 
   getFormValue() {
-
+    this.subscribe = this.getEstelamService.getMessageEdit().subscribe(res => {
+      // res.message.formValue.date = moment(res.message.formValue.date).format('YYYY-MM-DD');
+      // this.formValue = res.message.formValue;
+    });
   }
 
   formSubmit(form) {
@@ -68,7 +66,8 @@ export class EntranceTravelInsuranceComponent implements OnInit, OnDestroy {
     this.router.navigate(['pages/entrance-sodor']);
     const value = {Age: 20, Duration: this.formValue.duration};
     this.service.submitForm(value).subscribe(res => {
-      const data = {formValue: this.formValue, reqRes: res.Data};
+      debugger;
+      const data = {formValue: this.formValue, reqRes: res.Items};
       this.sendFormValue.sendMessage(data);
     });
   }

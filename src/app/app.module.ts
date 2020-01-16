@@ -27,7 +27,6 @@ import {PageDahsboardComponent} from './module/dashboard/page/page-dahsboard/pag
 import {EntranceTravelInsuranceComponent} from './module/travel-insurance/page/entrance-travel-insurance/entrance-travel-insurance.component';
 import {EntranceTravelInsuranceService} from './module/travel-insurance/service/entrance-travel-insurance.service';
 import {FormValidateService} from './core/services/Form-Validate.service';
-import {EntranceSodorBimeComponent} from './module/travel-insurance/page/entrance-sodor-bime/entrance-sodor-bime.component';
 import {LoginComponent} from './module/auth/login/login.component';
 import {JwtInterceptor} from './core/interceptor/jwt.interceptor';
 import {AuthGuard} from './core/guard/auth-guard.service';
@@ -56,7 +55,6 @@ import {ShowInsuranceService} from './module/show-insurance/service/show-insuran
     // pages
     PageDahsboardComponent,
     EntranceTravelInsuranceComponent,
-    EntranceSodorBimeComponent,
     LoginComponent,
     PageShowInsuranceComponent,
     GridShowInsuranceComponent,

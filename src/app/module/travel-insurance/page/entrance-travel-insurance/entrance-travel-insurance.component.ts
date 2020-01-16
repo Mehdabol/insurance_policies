@@ -68,4 +68,53 @@ export class EntranceTravelInsuranceComponent implements OnInit {
     });
   }
 
+
+  sodorBimeName() {
+    const data = {
+      AuthToken: 'string',
+      NationalCode: 'string',
+      FirstName: 'string',
+      LastName: 'string',
+      EnglishFirstName: 'string',
+      EnglishLastName: 'string',
+      Gender: 0,
+      IdentityNo: 'string',
+      PhoneNumber: 'string',
+      CellPhone: 'string',
+      FatherName: 'string',
+      IssueCity: 'string',
+      PostalCode: 'string',
+      BirthDate: 'string',
+      IsIranian: 0,
+      Address: 'string',
+      ForeignCode: 'string',
+      InsuranceType: 'string',
+      ContractNo: 'string',
+      PassportNo: 'string',
+      AgentCode: 'string',
+      CoverageLimit: 'string',
+      TripType: 0,
+      TripDurationType: 0,
+      InsuranceDuration: 'string',
+      GroupDiscountType: 'string',
+      Zone: 'string',
+      CountryId: 'string',
+      LocationZoneId: 'string',
+      PrintFormName: 'string',
+      Serie: 'string',
+      Serial: 'string',
+      ClearingType: 0,
+      DepositAccount: 'string',
+      PayId: 'string',
+      FirstInstallmentDate: 'string',
+      FirstInstallmentPercent: 'string',
+      InstallmentPeriod: 'string',
+      InstallmentCount: 'string',
+      ReceivedNo: 'string',
+      ReceivedDate: 'string'
+    };
+    this.service.sodorBimeName('').subscribe((res) => {
+
+    });
+  }
 }

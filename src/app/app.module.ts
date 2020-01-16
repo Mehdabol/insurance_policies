@@ -32,6 +32,8 @@ import {LoginComponent} from './module/auth/login/login.component';
 import {JwtInterceptor} from './core/interceptor/jwt.interceptor';
 import {AuthGuard} from './core/guard/auth-guard.service';
 import {AuthService} from './module/auth/service/auth.service';
+import { PageShowInsuranceComponent } from './module/show-insurance/page/page-show-insurance/page-show-insurance.component';
+import { GridShowInsuranceComponent } from './module/show-insurance/components/grid-show-insurance/grid-show-insurance.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import {AuthService} from './module/auth/service/auth.service';
     PageDahsboardComponent,
     EntranceTravelInsuranceComponent,
     EntranceSodorBimeComponent,
-    LoginComponent
+    LoginComponent,
+    PageShowInsuranceComponent,
+    GridShowInsuranceComponent
   ],
   imports: [
     AppRoutingModule,

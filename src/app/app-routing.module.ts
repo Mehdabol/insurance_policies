@@ -4,6 +4,7 @@ import {BaseLayoutComponent} from './core/module/layout/base-layout/base-layout.
 import {PageDahsboardComponent} from './module/dashboard/page/page-dahsboard/page-dahsboard.component';
 import {EntranceTravelInsuranceComponent} from './module/travel-insurance/page/entrance-travel-insurance/entrance-travel-insurance.component';
 import {LoginComponent} from './module/auth/login/login.component';
+import {PageShowInsuranceComponent} from './module/show-insurance/page/page-show-insurance/page-show-insurance.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       {path: 'dashboard', component: PageDahsboardComponent},
       // , canActivate: [AuthGuard]
       {path: 'entrance-travel-insurance', component: EntranceTravelInsuranceComponent},
+      {path: 'show-insurance', component: PageShowInsuranceComponent},
     ]
   },
 ];

@@ -3,6 +3,7 @@ import {LocalText} from '../../../../core/grid/ag-grid_fa';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../../core/services/alert.service';
 import {ButtonGridPdfComponent} from '../button-grid-pdf/button-grid-pdf.component';
+import {ShowInsuranceService} from '../../service/show-insurance.service';
 
 @Component({
   selector: 'app-grid-show-insurance',
@@ -14,7 +15,6 @@ export class GridShowInsuranceComponent implements OnInit {
   static self: GridShowInsuranceComponent;
   fromDate = '';
   toDate = '';
-  nationalCode = ''; // '0057901015';
   paramGrid;
   showFormat = {
     format: 'jYYYY/jMM/jDD'
@@ -34,11 +34,13 @@ export class GridShowInsuranceComponent implements OnInit {
   frameworkComponents;
 
   constructor(private router: Router,
-              private alertService: AlertService,) {
+              private alertService: AlertService,
+              private service: ShowInsuranceService) {
     this.GridOption();
   }
 
   ngOnInit() {
+    debugger;
     GridShowInsuranceComponent.self = this;
   }
 
@@ -50,22 +52,23 @@ export class GridShowInsuranceComponent implements OnInit {
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        const valaa = [
-          {Name: '2', Vazeiyat: '33'}
-        ];
-        params.successCallback(valaa, valaa.length);
-
-        // GridShowInsuranceComponent.self.service.getGridData()
-        //   .subscribe((res: any) => {
-        //     if (data) {
-        //       params.successCallback(res.Data, res.Data.length);
-        //       // GridShowInsuranceComponent.self.autoSize();
-        //       (res.Data.length === 0 || res.Data == null) ? GridShowInsuranceComponent.self.gridApi.showNoRowsOverlay() :
-        //         GridShowInsuranceComponent.self.gridApi.hideOverlay();
-        //     } else {
-        //       params.failCallback();
-        //     }
-        //   });
+        const filterData = {
+          FromDate: GridShowInsuranceComponent.self.fromDate,
+          ToDate: GridShowInsuranceComponent.self.toDate, Take: data.endRow,
+          Skip: data.startRow
+        };
+        GridShowInsuranceComponent.self.service.getGridData(filterData)
+          .subscribe((res: any) => {
+            debugger;
+            if (data) {
+              params.successCallback(res.Data, res.Data.length);
+              GridShowInsuranceComponent.self.autoSize();
+              (res.Data.length === 0 || res.Data == null) ? GridShowInsuranceComponent.self.gridApi.showNoRowsOverlay() :
+                GridShowInsuranceComponent.self.gridApi.hideOverlay();
+            } else {
+              params.failCallback();
+            }
+          });
       }
     };
     params.api.setServerSideDatasource(dataSource);
@@ -78,30 +81,30 @@ export class GridShowInsuranceComponent implements OnInit {
     this.columnDefs = [
       {
         headerName: 'id',
-        field: 'bid',
+        field: 'ID',
         hide: true
       }, {
         headerName: 'نام و نام خانوادگی',
-        field: 'Name',
+        field: 'FullName',
       }, {
         headerName: 'شماره پاسپورت',
-        field: 'Vazeiyat',
+        field: 'PassportNo',
       }, {
         headerName: 'مدت اقامت(روز)',
-        field: 'Etebar',
+        field: 'ModateEghamat',
       }, {
         headerName: 'شماره بیمه نامه',
         field: 'ShomareBimeName',
       }, {
         headerName: 'وضعیت ابطال',
-        field: 'OnlineCode',
+        field: 'VazeiyatEbtal',
       },
       {
         headerName: 'کاربر ثبت',
-        field: 'OnlineCode',
+        field: 'RegisterUser',
       }, {
         headerName: 'زمان ثبت',
-        field: 'OnlineCode',
+        field: 'RegisterTime',
       }, {
         headerName: 'چاپ ',
         cellRenderer: 'detailButton',
@@ -131,11 +134,11 @@ export class GridShowInsuranceComponent implements OnInit {
 
 
   autoSize() {
-    // const allColumnIds = [];
-    // this.gridColumnApi.getAllColumns().forEach((column) => {
-    //   allColumnIds.push(column.colId);
-    // });
-    // this.gridColumnApi.autoSizeColumns(allColumnIds);
+    const allColumnIds = [];
+    this.gridColumnApi.getAllColumns().forEach((column) => {
+      allColumnIds.push(column.colId);
+    });
+    this.gridColumnApi.autoSizeColumns(allColumnIds);
   }
 
 

@@ -27,18 +27,19 @@ import {PageDahsboardComponent} from './module/dashboard/page/page-dahsboard/pag
 import {EntranceTravelInsuranceComponent} from './module/travel-insurance/page/entrance-travel-insurance/entrance-travel-insurance.component';
 import {EntranceTravelInsuranceService} from './module/travel-insurance/service/entrance-travel-insurance.service';
 import {FormValidateService} from './core/services/Form-Validate.service';
-import { EntranceSodorBimeComponent } from './module/travel-insurance/page/entrance-sodor-bime/entrance-sodor-bime.component';
+import {EntranceSodorBimeComponent} from './module/travel-insurance/page/entrance-sodor-bime/entrance-sodor-bime.component';
 import {LoginComponent} from './module/auth/login/login.component';
 import {JwtInterceptor} from './core/interceptor/jwt.interceptor';
 import {AuthGuard} from './core/guard/auth-guard.service';
 import {AuthService} from './module/auth/service/auth.service';
-import { PageShowInsuranceComponent } from './module/show-insurance/page/page-show-insurance/page-show-insurance.component';
-import { GridShowInsuranceComponent } from './module/show-insurance/components/grid-show-insurance/grid-show-insurance.component';
-import { PageCreateUserComponent } from './module/create-user/page/page-create-user/page-create-user.component';
-import { GridCreateUserComponent } from './module/create-user/component/grid-create-user/grid-create-user.component';
-import { AddCreateUserComponent } from './module/create-user/component/add-create-user/add-create-user.component';
+import {PageShowInsuranceComponent} from './module/show-insurance/page/page-show-insurance/page-show-insurance.component';
+import {GridShowInsuranceComponent} from './module/show-insurance/components/grid-show-insurance/grid-show-insurance.component';
+import {PageCreateUserComponent} from './module/create-user/page/page-create-user/page-create-user.component';
+import {GridCreateUserComponent} from './module/create-user/component/grid-create-user/grid-create-user.component';
+import {AddCreateUserComponent} from './module/create-user/component/add-create-user/add-create-user.component';
 import {CreateUserService} from './module/create-user/service/create-user.service';
-import { ButtonGridPdfComponent } from './module/show-insurance/components/button-grid-pdf/button-grid-pdf.component';
+import {ButtonGridPdfComponent} from './module/show-insurance/components/button-grid-pdf/button-grid-pdf.component';
+import {ShowInsuranceService} from './module/show-insurance/service/show-insurance.service';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { ButtonGridPdfComponent } from './module/show-insurance/components/butto
     FormValidateService,
     CreateUserService,
     AuthGuard,
+    ShowInsuranceService,
     AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},

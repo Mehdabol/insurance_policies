@@ -108,7 +108,7 @@ export class GridShowInsuranceComponent implements OnInit {
         minWidth: 85,
         cellRendererParams: {
           onClick: this.onPdfButton.bind(this),
-          label: 'جزئیات',
+          label: 'pdf',
           icon: 'fa fa-download'
         }
       },

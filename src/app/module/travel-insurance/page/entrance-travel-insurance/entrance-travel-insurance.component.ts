@@ -14,9 +14,7 @@ export class EntranceTravelInsuranceComponent implements OnInit {
   maxDate = new Date();
   genderList = [];
   first = true;
-  countryList = [
-    {id: 1, title: 'iran'}
-  ];
+  countryList = [];
   formValue = {
     name: '', lastName: '', passNo: '',
     gender: '', country: '', duration: '', date: ''
@@ -29,7 +27,7 @@ export class EntranceTravelInsuranceComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getCountry();
+    this.getCountry();
     this.getGender();
   }
 
@@ -66,7 +64,7 @@ export class EntranceTravelInsuranceComponent implements OnInit {
 
   getCountry() {
     this.service.getCountry().subscribe(res => {
-      this.countryList = res;
+      this.countryList = res.Data;
     });
   }
 

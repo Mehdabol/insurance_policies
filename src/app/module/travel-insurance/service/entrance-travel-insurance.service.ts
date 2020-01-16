@@ -18,6 +18,6 @@ export class EntranceTravelInsuranceService {
   }
 
   getCountry() {
-    return this.apiService.get(this.url);
+    return this.apiService.post(this.urlCommon + 'GetAllCoutries', '');
   }
 }

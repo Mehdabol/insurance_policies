@@ -80,7 +80,7 @@ export class ApiService<T> {
   }
 
   public postLogin(url: string, obj: T): Observable<T> {
-    return this.http.post<T>(`http://89.32.248.230:80/${url}`, obj, this.httpOptions)
+    return this.http.post<T>(`${this.API_URL}/${url}`, obj, this.httpOptions)
       .pipe(
         map((r: any) => {
             if (r.StatusCode === 200) {

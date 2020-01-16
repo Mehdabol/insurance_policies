@@ -37,6 +37,7 @@ import { GridShowInsuranceComponent } from './module/show-insurance/components/g
 import { PageCreateUserComponent } from './module/create-user/page/page-create-user/page-create-user.component';
 import { GridCreateUserComponent } from './module/create-user/component/grid-create-user/grid-create-user.component';
 import { AddCreateUserComponent } from './module/create-user/component/add-create-user/add-create-user.component';
+import {CreateUserService} from './module/create-user/service/create-user.service';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { AddCreateUserComponent } from './module/create-user/component/add-creat
     MatDatepickerModule,
     EntranceTravelInsuranceService,
     FormValidateService,
+    CreateUserService,
     AuthGuard,
     AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

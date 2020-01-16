@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormValidateService} from '../../../../core/services/Form-Validate.service';
 import {AlertService} from '../../../../core/services/alert.service';
+import {CreateUserService} from '../../service/create-user.service';
 
 @Component({
   selector: 'app-add-create-user',
@@ -14,6 +15,7 @@ export class AddCreateUserComponent implements OnInit {
 
   constructor(private errorService: FormValidateService,
               private alertService: AlertService,
+              private service: CreateUserService,
               private router: Router) {
   }
 
@@ -29,7 +31,11 @@ export class AddCreateUserComponent implements OnInit {
   }
 
   submittedForm(value) {
-
+    const rol = localStorage.getItem('rolId');
+    this.service.createUser(value, rol).subscribe((res) => {
+      debugger;
+      this.onBack();
+    });
   }
 
   onBack() {

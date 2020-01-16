@@ -3,9 +3,6 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {AuthComponent} from './auth.component';
 import {AuthRoutingModule} from './auth.routing.module';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [

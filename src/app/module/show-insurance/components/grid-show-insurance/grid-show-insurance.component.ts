@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LocalText} from '../../../../core/grid/ag-grid_fa';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../../core/services/alert.service';
+import {ButtonGridPdfComponent} from '../button-grid-pdf/button-grid-pdf.component';
 
 @Component({
   selector: 'app-grid-show-insurance',
@@ -42,13 +43,6 @@ export class GridShowInsuranceComponent implements OnInit {
   }
 
 
-  onRowClicked(event: any) {
-  }
-
-  onSearch() {
-    this.onGridReady(this.paramGrid);
-  }
-
   onGridReady(params) {
     this.paramGrid = params;
     this.gridApi = params.api;
@@ -56,6 +50,11 @@ export class GridShowInsuranceComponent implements OnInit {
     const dataSource = {
       getRows(params) {
         const data = params.request;
+        const valaa = [
+          {Name: '2', Vazeiyat: '33'}
+        ];
+        params.successCallback(valaa, valaa.length);
+
         // GridShowInsuranceComponent.self.service.getGridData()
         //   .subscribe((res: any) => {
         //     if (data) {
@@ -84,7 +83,6 @@ export class GridShowInsuranceComponent implements OnInit {
       }, {
         headerName: 'نام و نام خانوادگی',
         field: 'Name',
-
       }, {
         headerName: 'شماره پاسپورت',
         field: 'Vazeiyat',
@@ -104,13 +102,20 @@ export class GridShowInsuranceComponent implements OnInit {
       }, {
         headerName: 'زمان ثبت',
         field: 'OnlineCode',
-      },{
-        headerName: 'چاپ',
-        field: 'OnlineCode',
+      }, {
+        headerName: 'چاپ ',
+        cellRenderer: 'detailButton',
+        minWidth: 85,
+        cellRendererParams: {
+          onClick: this.onPdfButton.bind(this),
+          label: 'جزئیات',
+          icon: 'fa fa-download'
+        }
       },
     ];
     this.cacheBlockSize = 100;
     this.localeText = LocalText;
+    this.frameworkComponents = {detailButton: ButtonGridPdfComponent};
 
     this.defaultColDef = {
       sortable: true,
@@ -143,4 +148,7 @@ export class GridShowInsuranceComponent implements OnInit {
     // this.gridColumnApi.autoSizeColumns(allColumnIds);
   }
 
+  onPdfButton() {
+
+  }
 }

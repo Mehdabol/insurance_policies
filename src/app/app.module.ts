@@ -38,6 +38,7 @@ import { PageCreateUserComponent } from './module/create-user/page/page-create-u
 import { GridCreateUserComponent } from './module/create-user/component/grid-create-user/grid-create-user.component';
 import { AddCreateUserComponent } from './module/create-user/component/add-create-user/add-create-user.component';
 import {CreateUserService} from './module/create-user/service/create-user.service';
+import { ButtonGridPdfComponent } from './module/show-insurance/components/button-grid-pdf/button-grid-pdf.component';
 
 @NgModule({
   declarations: [
@@ -60,11 +61,12 @@ import {CreateUserService} from './module/create-user/service/create-user.servic
     GridShowInsuranceComponent,
     PageCreateUserComponent,
     GridCreateUserComponent,
-    AddCreateUserComponent
+    AddCreateUserComponent,
+    ButtonGridPdfComponent
   ],
   imports: [
     AppRoutingModule,
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([ButtonGridPdfComponent]),
     BrowserAnimationsModule,
     MatSelectModule,
     AutocompleteLibModule,

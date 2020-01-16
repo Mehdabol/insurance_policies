@@ -34,7 +34,7 @@ dp-date-picker {
 
     .dp-picker-input {
       width: 100% !important;
-      border: 1px solid #e4e6fc;
+      border: 1px solid #afafaf;
       border-radius: 5px;
       height: 42px !important;
     }
@@ -343,9 +343,10 @@ table.table {
   }
 }
 
-.form-control, .mat-select-trigger {
+.form-control, .mat-select-trigger, .dp-picker-input {
   border-color: #afafaf;
 }
+
 
 .custom-input {
   text-align: left;

@@ -1,3 +1,111 @@
-<p>
-  add-create-user works!
-</p>
+<div class="card">
+  <div class="card-header">
+    <div class="col-md-12 ">
+      <div class="row">
+        <button class="btn btn-danger ml-2" (click)="onBack()">
+          <i class="fa fa-arrow-right"></i>
+          بازگشت
+        </button>
+        <button class="btn text-center  btn-success " style="margin-right: 20px"
+                type="submit" (click)="onSubmitForm(f)">
+          تایید
+          <i class="fa fa-check"></i>
+
+        </button>
+      </div>
+
+    </div>
+  </div>
+  <div class="card-body">
+    <form #f='ngForm' (ngSubmit)="onSubmitForm(f)" class="form-horizontal row">
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>نام </label>
+        <input class="form-control " name="firstName" ngModel placeholder="نام "
+               required type="text">
+      </div>
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>نام خانوادگی</label>
+        <input class="form-control " name="lastName" ngModel placeholder="نام خانوادگی"
+               required type="text">
+      </div>
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>نام پدر</label>
+        <input class="form-control " name="fatherName" ngModel placeholder="نام پدر"
+               required type="text">
+      </div>
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>کد ملی</label>
+        <input class="form-control " name="NationalID" ngModel placeholder="کد ملی"
+               required type="text">
+      </div>
+
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>موبایل</label>
+        <input class="form-control " name="mobileNumber" ngModel placeholder="موبایل"
+               required type="text">
+      </div>
+
+
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>رمز عبور </label>
+        <input class="form-control " name="password" ngModel placeholder="رمز عبور "
+               required type="password">
+      </div>
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>تکرار رمز عبور </label>
+        <input class="form-control " name="confirmPassword" ngModel placeholder="تکرار رمز عبور "
+               required type="password">
+      </div>
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>تاریخ تولد</label>
+        <dp-date-picker
+          dir="rtl"
+          [(ngModel)]="brithDate"
+          name="birthDate"
+          mode="day"
+          [config]="FormatDate"
+          theme="dp-material">
+        </dp-date-picker>
+      </div>
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>جنسیت</label>
+        <select class="form-control" name="gender" ngModel>
+          <option></option>
+          <option value="true">مرد</option>
+          <option value="false">زن</option>
+        </select>
+      </div>
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>کد پستی</label>
+        <input class="form-control " name="postalCode" ngModel placeholder="کد پستی"
+               required type="text">
+      </div>
+
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>وضعیت تاهل</label>
+        <select class="form-control" name="married" ngModel>
+          <option></option>
+          <option value="true">متاهل</option>
+          <option value="false">مجرد</option>
+        </select>
+      </div>
+      <div class="form-group position-relative has-icon-left col-md-4">
+        <label>ایمیل</label>
+
+        <input class="form-control " name="email" ngModel placeholder="ایمیل"
+               required type="text">
+      </div>
+      <div class="form-group position-relative has-icon-left col-md-12">
+        <label>آدرس</label>
+        <textarea class="form-control " name="address" ngModel placeholder="آدرس"
+                  required>
+              </textarea>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-12">
+
+      </div>
+    </div>
+  </div>
+</div>

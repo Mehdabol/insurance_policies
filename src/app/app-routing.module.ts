@@ -3,7 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {BaseLayoutComponent} from './core/module/layout/base-layout/base-layout.component';
 import {PageDahsboardComponent} from './module/dashboard/page/page-dahsboard/page-dahsboard.component';
 import {EntranceTravelInsuranceComponent} from './module/travel-insurance/page/entrance-travel-insurance/entrance-travel-insurance.component';
-import {EntranceSodorBimeComponent} from './module/travel-insurance/page/entrance-sodor-bime/entrance-sodor-bime.component';
+import {AuthGuard} from './core/guard/auth-guard.service';
+import {LoginComponent} from './module/auth/login/login.component';
 
 const routes: Routes = [
   {
@@ -16,9 +17,9 @@ const routes: Routes = [
     path: 'pages',
     component: BaseLayoutComponent,
     children: [
-      {path: 'dashboard', component: PageDahsboardComponent},
-      {path: 'entrance-travel-insurance', component: EntranceTravelInsuranceComponent},
-      {path: 'entrance-sodor', component: EntranceSodorBimeComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'dashboard', component: PageDahsboardComponent, canActivate: [AuthGuard]},
+      {path: 'entrance-travel-insurance', component: EntranceTravelInsuranceComponent, canActivate: [AuthGuard]},
     ]
   },
 ];

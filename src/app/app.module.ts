@@ -28,6 +28,10 @@ import {EntranceTravelInsuranceComponent} from './module/travel-insurance/page/e
 import {EntranceTravelInsuranceService} from './module/travel-insurance/service/entrance-travel-insurance.service';
 import {FormValidateService} from './core/services/Form-Validate.service';
 import { EntranceSodorBimeComponent } from './module/travel-insurance/page/entrance-sodor-bime/entrance-sodor-bime.component';
+import {LoginComponent} from './module/auth/login/login.component';
+import {JwtInterceptor} from './core/interceptor/jwt.interceptor';
+import {AuthGuard} from './core/guard/auth-guard.service';
+import {AuthService} from './module/auth/service/auth.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,7 @@ import { EntranceSodorBimeComponent } from './module/travel-insurance/page/entra
     PageDahsboardComponent,
     EntranceTravelInsuranceComponent,
     EntranceSodorBimeComponent,
+    LoginComponent
   ],
   imports: [
     AppRoutingModule,
@@ -74,6 +79,9 @@ import { EntranceSodorBimeComponent } from './module/travel-insurance/page/entra
     MatDatepickerModule,
     EntranceTravelInsuranceService,
     FormValidateService,
+    AuthGuard,
+    AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: APP_BASE_HREF, useValue: '/'}],

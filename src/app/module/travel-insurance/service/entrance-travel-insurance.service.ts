@@ -3,7 +3,8 @@ import {ApiService} from '../../../core/http/api.service';
 
 @Injectable()
 export class EntranceTravelInsuranceService {
-  url = 'razitenderinquiry/api/Inquery/';
+  url = 'InsuranceSrv/api/Inquiry/';
+  urlCommon = 'InsuranceSrv/api/Common/';
 
   constructor(private apiService: ApiService<any>) {
   }
@@ -13,7 +14,7 @@ export class EntranceTravelInsuranceService {
   }
 
   getGender() {
-    return this.apiService.get(this.url);
+    return this.apiService.post(this.urlCommon + 'GetAllGender', '');
   }
 
   getCountry() {

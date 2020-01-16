@@ -26,9 +26,8 @@
                   <label class="pt-1">جنسیت(Gender)</label>
                   <mat-select [(ngModel)]="formValue.gender"
                               name="gender">
-                    <mat-option></mat-option>
                     <mat-option *ngFor="let item of genderList"
-                                [value]="item.title">{{item.title}}</mat-option>
+                                [value]="item.Text">{{item.Text}}</mat-option>
                   </mat-select>
                 </div>
                 <div class="col-md-6 mt-3">

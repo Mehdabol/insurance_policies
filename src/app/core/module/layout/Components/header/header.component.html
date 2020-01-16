@@ -24,34 +24,33 @@
     </ul>
   </div>
   <ul class="navbar-nav navbar-right">
-   
-    <!--<app-notification *ngIf="hasLogin"></app-notification>-->
-    <!--<li class="dropdown">-->
-    <!--<a data-toggle="dropdown"-->
-    <!--class="nav-link dropdown-toggle nav-link-lg nav-link-user">-->
-    <!--<i class="fa fa-user-alt"></i>-->
 
-    <!--&lt;!&ndash;<img alt="تصویر"&ndash;&gt;-->
-    <!--&lt;!&ndash;src="assets/img/user.png"&ndash;&gt;-->
-    <!--&lt;!&ndash;class="user-img-radious-style">&ndash;&gt;-->
-    <!--<span class="d-sm-none d-lg-inline-block"></span></a>-->
-    <!--<div class="dropdown-menu dropdown-menu-right pullDown" *ngIf="hasLogin">-->
-    <!--<a class="dropdown-item has-icon custom-text-alert" (click)="onchangePass()" >-->
-    <!--<i class="fas fa-key"></i>-->
-    <!--تغییر رمز عبور-->
-    <!--</a>-->
-    <!--<a class="dropdown-item has-icon custom-text-alert" (click)="onSingOut()" >-->
-    <!--<i class="fas fa-sign-out-alt"></i>-->
-    <!--خروج-->
-    <!--</a>-->
-    <!--</div>-->
-    <!--<div class="dropdown-menu dropdown-menu-right pullDown" *ngIf="!hasLogin">-->
-    <!--<a class="dropdown-item has-icon custom-text-alert" (click)="onSingOut()" >-->
-    <!--<i class="fas fa-sign-in-alt"></i>-->
-    <!--ورود به سامانه-->
-    <!--</a>-->
+    <li class="dropdown">
+      <a data-toggle="dropdown"
+         class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+        <i class="fa fa-user-alt"></i>
 
-    <!--</div>-->
-    <!--</li>-->
+        <!--<img alt="تصویر"-->
+        <!--src="assets/img/user.png"-->
+        <!--class="user-img-radious-style">-->
+        <span class="d-sm-none d-lg-inline-block"></span></a>
+      <div class="dropdown-menu dropdown-menu-right pullDown" *ngIf="hasLogin">
+        <!--<a class="dropdown-item has-icon custom-text-alert" (click)="onchangePass()">-->
+          <!--<i class="fas fa-key"></i>-->
+          <!--تغییر رمز عبور-->
+        <!--</a>-->
+        <a class="dropdown-item has-icon custom-text-alert" (click)="onSingOut()">
+          <i class="fas fa-sign-out-alt"></i>
+          خروج
+        </a>
+      </div>
+      <!--<div class="dropdown-menu dropdown-menu-right pullDown" *ngIf="!hasLogin">-->
+      <!--<a class="dropdown-item has-icon custom-text-alert" (click)="onSingOut()">-->
+      <!--<i class="fas fa-sign-in-alt"></i>-->
+      <!--ورود به سامانه-->
+      <!--</a>-->
+
+      <!--</div>-->
+    </li>
   </ul>
 </nav>

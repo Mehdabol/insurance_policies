@@ -12,10 +12,7 @@ import * as moment from 'jalali-moment';
 })
 export class EntranceTravelInsuranceComponent implements OnInit {
   maxDate = new Date();
-  genderList = [
-    {id: 1, title: 'مرد'},
-    {id: 2, title: 'زن'}
-  ];
+  genderList = [];
   first = true;
   countryList = [
     {id: 1, title: 'iran'}
@@ -33,7 +30,7 @@ export class EntranceTravelInsuranceComponent implements OnInit {
 
   ngOnInit() {
     // this.getCountry();
-    // this.getGender();
+    this.getGender();
   }
 
 
@@ -48,7 +45,7 @@ export class EntranceTravelInsuranceComponent implements OnInit {
 
 
   submittedForm() {
-    const value = {Age: 20, Duration: this.formValue.duration};
+    const value = {BirthDate: this.formValue.date, Duration: this.formValue.duration};
     this.service.submitForm(value).subscribe(res => {
       this.formValue.date = moment(this.formValue.date).format('YYYY-MM-DD');
       this.reqRes = res.Items;
@@ -63,7 +60,7 @@ export class EntranceTravelInsuranceComponent implements OnInit {
 
   getGender() {
     this.service.getGender().subscribe(res => {
-      this.genderList = res;
+      this.genderList = res.Data;
     });
   }
 

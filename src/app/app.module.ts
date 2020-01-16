@@ -34,6 +34,9 @@ import {AuthGuard} from './core/guard/auth-guard.service';
 import {AuthService} from './module/auth/service/auth.service';
 import { PageShowInsuranceComponent } from './module/show-insurance/page/page-show-insurance/page-show-insurance.component';
 import { GridShowInsuranceComponent } from './module/show-insurance/components/grid-show-insurance/grid-show-insurance.component';
+import { PageCreateUserComponent } from './module/create-user/page/page-create-user/page-create-user.component';
+import { GridCreateUserComponent } from './module/create-user/component/grid-create-user/grid-create-user.component';
+import { AddCreateUserComponent } from './module/create-user/component/add-create-user/add-create-user.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { GridShowInsuranceComponent } from './module/show-insurance/components/g
     EntranceSodorBimeComponent,
     LoginComponent,
     PageShowInsuranceComponent,
-    GridShowInsuranceComponent
+    GridShowInsuranceComponent,
+    PageCreateUserComponent,
+    GridCreateUserComponent,
+    AddCreateUserComponent
   ],
   imports: [
     AppRoutingModule,

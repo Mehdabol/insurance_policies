@@ -11,17 +11,16 @@ export class SidebarComponent implements OnInit, OnDestroy {
   subscribe;
   hasLogin;
   menu = [
-    // {title: 'خانه', icon: 'fa fa-home', path: 'health-centers', hasChile: false},
     {
       title: 'بیمه  مسافرتی', icon: 'fa fa-home', hasChile: true, subMenu: [
         {title: 'ورود به ایران', path: 'entrance-travel-insurance', hasChile: false},
-        // {title: 'خروج از ایران', path: 'agencies', hasChile: false},
       ]
     }, {
       title: 'نمایش بیمه ها', icon: 'fa fa-home', hasChile: true, subMenu: [
         {title: 'بیمه‌نامه‌های ورود به ایران', path: 'show-insurance', hasChile: false},
-        // {title: 'خروج از ایران', path: 'agencies', hasChile: false},
       ]
+    }, {
+      title: 'ثبت کاربر توسط نمایندگان', icon: 'fa fa-home', hasChile: false, path: 'create-user'
     },
   ];
 

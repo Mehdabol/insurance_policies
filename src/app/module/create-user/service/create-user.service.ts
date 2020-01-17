@@ -8,8 +8,8 @@ export class CreateUserService {
   constructor(private service: ApiService<any>) {
   }
 
-  createUser(data, rolId) {
-    return this.service.post(this.url + `CreateUserWithRole?roleId=${rolId}`, data);
+  createUser(data) {
+    return this.service.post(this.url + `CreateUserWithRole`, data);
 
   }
 

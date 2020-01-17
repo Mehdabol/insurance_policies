@@ -20,6 +20,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
         {title: 'بیمه‌نامه‌های ورود به ایران', path: 'show-insurance', hasChile: false},
       ]
     }, {
+      title: 'امور نمایندگان', icon: 'fa fa-home', hasChile: true, subMenu: [
+        {title: 'دریافت Token', path: 'get-token', hasChile: false},
+      ]
+    }, {
       title: 'ثبت کاربر توسط نمایندگان', icon: 'fa fa-home', hasChile: false, path: 'create-user'
     },
   ];

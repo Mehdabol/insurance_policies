@@ -1,0 +1,38 @@
+<p>دریافت Token</p>
+<div class="card ">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+
+          </div>
+          <div class="card-body">
+            <form class="form-horizontal" (ngSubmit)="onSubmitForm(f)" #f='ngForm'>
+              <div class="form-group position-relative has-icon-left">
+                <label>نام کاربری</label>
+                <input type="text" class="form-control " name="UserName" ngModel
+                       placeholder="نام کاربری شما" required>
+              </div>
+              <div class="form-group position-relative has-icon-left">
+                <label>رمز عبور</label>
+
+                <input type="password" class="form-control " name="Password" ngModel
+                       placeholder="رمز عبور را وارد کنید" required>
+              </div>
+              <div class="form-group text-center">
+                <button type="submit"
+                        class="btn text-center  btn-block btn-info col-12 mr-1 mb-1 w-100">
+                  ذخیره
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>

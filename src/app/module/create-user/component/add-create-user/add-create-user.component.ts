@@ -31,8 +31,8 @@ export class AddCreateUserComponent implements OnInit {
   }
 
   submittedForm(value) {
-    const rol = localStorage.getItem('rolId');
-    this.service.createUser(value, rol).subscribe((res) => {
+    debugger;
+    this.service.createUser(value).subscribe((res) => {
       debugger;
       this.onBack();
     });

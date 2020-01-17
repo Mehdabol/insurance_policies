@@ -39,6 +39,7 @@ import {AddCreateUserComponent} from './module/create-user/component/add-create-
 import {CreateUserService} from './module/create-user/service/create-user.service';
 import {ButtonGridPdfComponent} from './module/show-insurance/components/button-grid-pdf/button-grid-pdf.component';
 import {ShowInsuranceService} from './module/show-insurance/service/show-insurance.service';
+import { PageGetTokenComponent } from './module/getToken/page/page-get-token/page-get-token.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import {ShowInsuranceService} from './module/show-insurance/service/show-insuran
     PageCreateUserComponent,
     GridCreateUserComponent,
     AddCreateUserComponent,
-    ButtonGridPdfComponent
+    ButtonGridPdfComponent,
+    PageGetTokenComponent
   ],
   imports: [
     AppRoutingModule,

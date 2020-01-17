@@ -7,6 +7,7 @@ import {LoginComponent} from './module/auth/login/login.component';
 import {PageShowInsuranceComponent} from './module/show-insurance/page/page-show-insurance/page-show-insurance.component';
 import {PageCreateUserComponent} from './module/create-user/page/page-create-user/page-create-user.component';
 import {AddCreateUserComponent} from './module/create-user/component/add-create-user/add-create-user.component';
+import {PageGetTokenComponent} from './module/getToken/page/page-get-token/page-get-token.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       {path: 'show-insurance', component: PageShowInsuranceComponent},
       {path: 'create-user', component: PageCreateUserComponent},
       {path: 'add-create-user', component: AddCreateUserComponent},
+      {path: 'get-token', component: PageGetTokenComponent},
     ]
   },
 ];

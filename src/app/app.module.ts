@@ -39,7 +39,8 @@ import {AddCreateUserComponent} from './module/create-user/component/add-create-
 import {CreateUserService} from './module/create-user/service/create-user.service';
 import {ButtonGridPdfComponent} from './module/show-insurance/components/button-grid-pdf/button-grid-pdf.component';
 import {ShowInsuranceService} from './module/show-insurance/service/show-insurance.service';
-import { PageGetTokenComponent } from './module/getToken/page/page-get-token/page-get-token.component';
+import {PageGetTokenComponent} from './module/getToken/page/page-get-token/page-get-token.component';
+import {GetTokenService} from './module/getToken/service/get-token.service';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { PageGetTokenComponent } from './module/getToken/page/page-get-token/pag
     AuthGuard,
     ShowInsuranceService,
     AuthService,
+    GetTokenService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},
     {provide: LocationStrategy, useClass: HashLocationStrategy},

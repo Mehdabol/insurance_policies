@@ -69,36 +69,40 @@ export class EntranceTravelInsuranceComponent implements OnInit {
   }
 
 
-  sodorBimeName() {
+  sodorBimeName(id) {
+
+    const token = localStorage.getItem('userToken');
+    const formValue = this.formValue;
+    const reqValue = this.reqRes.filter(x => x.Id = id);
     const data = {
-      AuthToken: 'string',
+      AuthToken: token,
       NationalCode: 'string',
       FirstName: 'string',
       LastName: 'string',
-      EnglishFirstName: 'string',
-      EnglishLastName: 'string',
-      Gender: 0,
+      EnglishFirstName: formValue.name,
+      EnglishLastName: formValue.lastName,
+      Gender: formValue.gender,
       IdentityNo: 'string',
       PhoneNumber: 'string',
       CellPhone: 'string',
       FatherName: 'string',
       IssueCity: 'string',
       PostalCode: 'string',
-      BirthDate: 'string',
+      BirthDate: formValue.date,
       IsIranian: 0,
       Address: 'string',
       ForeignCode: 'string',
       InsuranceType: 'string',
       ContractNo: 'string',
-      PassportNo: 'string',
+      PassportNo: formValue.passNo,
       AgentCode: 'string',
       CoverageLimit: 'string',
       TripType: 0,
       TripDurationType: 0,
       InsuranceDuration: 'string',
       GroupDiscountType: 'string',
-      Zone: 'string',
-      CountryId: 'string',
+      Zone: reqValue[0].ZoneTitle,
+      CountryId: reqValue[0].Name,
       LocationZoneId: 'string',
       PrintFormName: 'string',
       Serie: 'string',
@@ -112,8 +116,9 @@ export class EntranceTravelInsuranceComponent implements OnInit {
       InstallmentCount: 'string',
       ReceivedNo: 'string',
       ReceivedDate: 'string'
+
     };
-    this.service.sodorBimeName('').subscribe((res) => {
+    this.service.sodorBimeName(data).subscribe((res) => {
 
     });
   }

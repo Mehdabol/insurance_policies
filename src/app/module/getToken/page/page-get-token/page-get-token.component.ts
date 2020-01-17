@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {GetTokenService} from '../../service/get-token.service';
+import {FormValidateService} from '../../../../core/services/Form-Validate.service';
 
 @Component({
   selector: 'app-page-get-token',
@@ -7,11 +9,21 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PageGetTokenComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: GetTokenService,
+              private errorService: FormValidateService) {
+  }
 
   ngOnInit() {
   }
 
-  onSubmitForm(f) {
+  onSubmitForm(form) {
+    if (form.invalid) {
+      this.errorService.generateArray(form);
+
+    } else {
+      this.service.getUserToken(form.value).subscribe((res) => {
+        debugger;
+      });
+    }
   }
 }

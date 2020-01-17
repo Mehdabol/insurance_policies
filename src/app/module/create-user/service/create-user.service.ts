@@ -8,6 +8,11 @@ export class CreateUserService {
   constructor(private service: ApiService<any>) {
   }
 
+
+  getGridData(data) {
+    return this.service.get(this.url + `GetAllUsers?Take=${data.take}&Skip=${data.skip}`,);
+
+  }
   createUser(data) {
     return this.service.post(this.url + `CreateUserWithRole`, data);
 

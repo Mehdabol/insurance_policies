@@ -40,7 +40,6 @@ export class GridShowInsuranceComponent implements OnInit {
   }
 
   ngOnInit() {
-    debugger;
     GridShowInsuranceComponent.self = this;
   }
 
@@ -57,6 +56,7 @@ export class GridShowInsuranceComponent implements OnInit {
           ToDate: GridShowInsuranceComponent.self.toDate, Take: data.endRow,
           Skip: data.startRow
         };
+        debugger
         GridShowInsuranceComponent.self.service.getGridData(filterData)
           .subscribe((res: any) => {
             debugger;

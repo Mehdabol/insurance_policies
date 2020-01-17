@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../../core/services/alert.service';
 import {LocalText} from '../../../../core/grid/ag-grid_fa';
+import {CreateUserService} from '../../service/create-user.service';
 
 @Component({
   selector: 'app-grid-create-user',
@@ -33,7 +34,8 @@ export class GridCreateUserComponent implements OnInit {
   frameworkComponents;
 
   constructor(private router: Router,
-              private alertService: AlertService,) {
+              private alertService: AlertService,
+              private service: CreateUserService) {
     this.GridOption();
   }
 
@@ -56,17 +58,19 @@ export class GridCreateUserComponent implements OnInit {
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        // GridCreateUserComponent.self.service.getGridData()
-        //   .subscribe((res: any) => {
-        //     if (data) {
-        //       params.successCallback(res.Data, res.Data.length);
-        //       // GridCreateUserComponent.self.autoSize();
-        //       (res.Data.length === 0 || res.Data == null) ? GridCreateUserComponent.self.gridApi.showNoRowsOverlay() :
-        //         GridCreateUserComponent.self.gridApi.hideOverlay();
-        //     } else {
-        //       params.failCallback();
-        //     }
-        //   });
+        const filterData = {take: data.endRow, skip: data.startRow};
+        GridCreateUserComponent.self.service.getGridData(filterData)
+          .subscribe((res: any) => {
+            if (data) {
+              debugger;
+              params.successCallback(res.Data, res.Data.length);
+              // GridCreateUserComponent.self.autoSize();
+              (res.Data.length === 0 || res.Data == null) ? GridCreateUserComponent.self.gridApi.showNoRowsOverlay() :
+                GridCreateUserComponent.self.gridApi.hideOverlay();
+            } else {
+              params.failCallback();
+            }
+          });
       }
     };
     params.api.setServerSideDatasource(dataSource);

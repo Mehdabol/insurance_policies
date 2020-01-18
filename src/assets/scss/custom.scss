@@ -78,11 +78,6 @@ dp-date-picker.ng-invalid.ng-touched input {
   border-color: #d70b1e !important;
 }
 
-.autocomplete-container .input-container input {
-  border: 1px solid #e4e6fc !important;
-  border-radius: 5px;
-
-}
 
 .autocomplete-container {
   box-shadow: none !important;
@@ -347,7 +342,12 @@ table.table {
   border-color: #afafaf;
 }
 
-
+.autocomplete-container .input-container input {
+  border: 1px solid #afafaf !important;
+  border-radius: 5px;
+  text-align: left;
+  padding-left: 30px!important;
+}
 .custom-input {
   text-align: left;
 }

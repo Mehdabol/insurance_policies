@@ -32,11 +32,17 @@
                 </div>
                 <div class="col-md-6 mt-3">
                   <label class="pt-1">کشور مبدا(Origin Country)</label>
-                  <mat-select [(ngModel)]="formValue.country"
-                              name="country">
-                    <mat-option *ngFor="let item of countryList"
-                                [value]="item.Text">{{item.Text}}</mat-option>
-                  </mat-select>
+                  <ng-autocomplete
+                    [data]="countryList"
+                    name="country"
+                    [(ngModel)]="formValue.country"
+                    [searchKeyword]="keyword"
+                    (selected)='selectEvent($event)'
+                    (inputChanged)='onChangeSearch($event)'
+                    (inputFocused)='onFocused($event)'
+                    [itemTemplate]="itemTemplate"
+                    [notFoundTemplate]="notFoundTemplate">
+                  </ng-autocomplete>
                 </div>
                 <div class="col-md-6 mt-3 ">
                   <label class="pt-1">مدت اقامت به روز(Duration) </label>
@@ -180,3 +186,10 @@
   </div>
   <div class="col-md-3"></div>
 </div>
+<ng-template #itemTemplate let-item>
+  <a [innerHTML]="item.Text"></a>
+</ng-template>
+
+<ng-template #notFoundTemplate let-notFound>
+  <div [innerHTML]="'مقدار مورد نظر وجود ندارد'"></div>
+</ng-template>

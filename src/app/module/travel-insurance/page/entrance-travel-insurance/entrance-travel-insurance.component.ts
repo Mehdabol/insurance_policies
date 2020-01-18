@@ -15,12 +15,14 @@ export class EntranceTravelInsuranceComponent implements OnInit {
   genderList = [];
   first = true;
   countryList = [];
-  formValue = {
+  formValue: any = {
     name: '', lastName: '', passNo: '',
     gender: '', country: '', duration: '', date: ''
   };
   reqRes = [];
   subscribe;
+  keyword = 'Text';
+  country: any;
   constructor(private service: EntranceTravelInsuranceService,
               private router: Router,
               private validateForm: FormValidateService) {
@@ -44,6 +46,9 @@ export class EntranceTravelInsuranceComponent implements OnInit {
 
   submittedForm() {
     const value = {BirthDate: this.formValue.date, Duration: this.formValue.duration};
+    if (typeof this.formValue.country !== 'string') {
+      this.formValue.country = this.formValue.country.Text;
+    }
     this.service.submitForm(value).subscribe(res => {
       this.formValue.date = moment(this.formValue.date).format('YYYY-MM-DD');
       this.reqRes = res.Items;
@@ -53,6 +58,9 @@ export class EntranceTravelInsuranceComponent implements OnInit {
   }
 
   onEdit() {
+    if (typeof this.formValue.country !== 'string') {
+      this.formValue.country = this.formValue.country.Text;
+    }
     this.first = true;
   }
 
@@ -69,6 +77,17 @@ export class EntranceTravelInsuranceComponent implements OnInit {
   }
 
 
+  selectEvent(item) {
+    this.formValue.country = item.Text;
+  }
+
+  onChangeSearch(val: string) {
+  }
+
+  onFocused(e) {
+  }
+
+
   sodorBimeName(id) {
 
     const token = localStorage.getItem('userToken');
@@ -77,45 +96,45 @@ export class EntranceTravelInsuranceComponent implements OnInit {
     const data = {
       AuthToken: token,
       NationalCode: 'string',
-      FirstName: 'string',
-      LastName: 'string',
+      FirstName: '22',
+      LastName: 'صضثضص',
       EnglishFirstName: formValue.name,
       EnglishLastName: formValue.lastName,
-      Gender: formValue.gender,
-      IdentityNo: 'string',
-      PhoneNumber: 'string',
-      CellPhone: 'string',
-      FatherName: 'string',
-      IssueCity: 'string',
-      PostalCode: 'string',
-      BirthDate: formValue.date,
+      Gender: 1,
+      IdentityNo: '',
+      PhoneNumber: '02186757000',
+      CellPhone: '',
+      FatherName: '',
+      IssueCity: '',
+      PostalCode: '',
+      BirthDate: '1366/03/14',
       IsIranian: 0,
-      Address: 'string',
-      ForeignCode: 'string',
-      InsuranceType: 'string',
-      ContractNo: 'string',
+      Address: 'ایران تهران فرودگاه امام خمینی',
+      ForeignCode: '',
+      InsuranceType: 31,
+      ContractNo: 6128,
       PassportNo: formValue.passNo,
-      AgentCode: 'string',
-      CoverageLimit: 'string',
+      AgentCode: 210223,
+      CoverageLimit: 10000,
       TripType: 0,
       TripDurationType: 0,
-      InsuranceDuration: 'string',
-      GroupDiscountType: 'string',
-      Zone: reqValue[0].ZoneTitle,
-      CountryId: reqValue[0].Name,
-      LocationZoneId: 'string',
-      PrintFormName: 'string',
-      Serie: 'string',
-      Serial: 'string',
-      ClearingType: 0,
+      InsuranceDuration: 7,
+      GroupDiscountType: 84,
+      Zone: 133,
+      CountryId: 591,
+      LocationZoneId: '822',
+      PrintFormName: 'SoundPrint',
+      Serie: 100,
+      Serial: 100,
+      ClearingType: 2313,
       DepositAccount: 'string',
-      PayId: 'string',
-      FirstInstallmentDate: 'string',
-      FirstInstallmentPercent: 'string',
-      InstallmentPeriod: 'string',
-      InstallmentCount: 'string',
-      ReceivedNo: 'string',
-      ReceivedDate: 'string'
+      PayId: '',
+      FirstInstallmentDate: '1398/10/28',
+      FirstInstallmentPercent: 100,
+      InstallmentPeriod: 1,
+      InstallmentCount: 1,
+      ReceivedNo: '',
+      ReceivedDate: ''
 
     };
     this.service.sodorBimeName(data).subscribe((res) => {

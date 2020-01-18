@@ -22,6 +22,7 @@ export class PageGetTokenComponent implements OnInit {
 
     } else {
       this.service.getUserToken(form.value).subscribe((res) => {
+        localStorage.setItem('userToken' , res.Data)
         debugger;
       });
     }

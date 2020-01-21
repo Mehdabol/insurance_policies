@@ -12,24 +12,24 @@ export class SidebarComponent implements OnInit, OnDestroy {
   hasLogin;
   menu = [
     {
-      title: 'بیمه  مسافرتی', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'بیمه  مسافرتی', icon: 'fa fa-home', hasChile: true, role: 'Insurance', subMenu: [
         {title: 'ورود به ایران', path: 'entrance-travel-insurance', hasChile: false},
       ]
     }, {
-      title: 'نمایش بیمه ها', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'نمایش بیمه ها', icon: 'fa fa-home', hasChile: true, role: 'Insurance', subMenu: [
         {title: 'بیمه‌نامه‌های ورود به ایران', path: 'show-insurance', hasChile: false},
       ]
     }, {
-      title: 'امور نمایندگان', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'امور نمایندگان', icon: 'fa fa-home', hasChile: true, role: 'Token', subMenu: [
         {title: 'دریافت Token', path: 'get-token', hasChile: false},
       ]
     }, {
-      title: 'ثبت کاربر توسط نمایندگان', icon: 'fa fa-home', hasChile: false, path: 'create-user'
+      title: 'ثبت کاربر توسط نمایندگان', icon: 'fa fa-home', role: 'Agent', hasChile: false, path: 'create-user'
     },
   ];
+  sidebarValueControl = [];
 
   constructor(private tokenService: TokenService) {
-
   }
 
 
@@ -37,12 +37,12 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.getToken();
     this.token = localStorage.getItem('token');
     this.hasLogin = this.token;
-    if (this.token === undefined || this.token === null) {
-      this.menu = [];
-    } else {
+    if (this.token !== undefined || this.token !== null) {
       this.getSideBar();
-      this.menu = [...this.menu];
+    } else {
+      this.menu = [];
     }
+
   }
 
   ngOnDestroy(): void {
@@ -54,21 +54,53 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   getToken() {
-    this.tokenService.getMessage().subscribe((res) => {
-      this.hasLogin = res;
-
-      if (res === null) {
-        this.menu = [];
-      } else {
-        this.menu = [...this.menu];
-      }
-    });
+    // this.tokenService.getMessage().subscribe((res) => {
+    //   this.hasLogin = res;
+    //   if (res === null) {
+    //     this.menu = [];
+    //   } else {
+    //     this.menu = [...this.menu];
+    //   }
+    // });
   }
 
   getSideBar() {
     this.tokenService.getSidebard().subscribe(res => {
-      debugger;
+      this.sidebarValueControl = res.Items;
+      this.getItems();
     });
+  }
+
+  getItems() {
+    const val = this.menu;
+    for (let i = val.length - 1; i >= 0; i--) {
+      this.getSunMenu(i);
+    }
+  }
+
+  getSunMenu(i) {
+    const menu = this.sidebarValueControl;
+    const has = [];
+    for (let x = menu.length - 1; x >= 0; x--) {
+      // debugger;
+      // console.log('this.sidebarValueControl[i].ControllerName', this.sidebarValueControl[i].ControllerName);
+      // console.log('this.menu[x].role', this.menu[i].role);
+      const m = this.sidebarValueControl[x].ControllerName.indexOf(this.menu[i].role);
+      const data = this.getTrue(m);
+      has.push(data);
+    }
+    if (has.indexOf(true) === -1) {
+      this.menu.splice(i, 1);
+    }
+    // console.log(this.menu);
+  }
+
+  getTrue(val) {
+    if (val === -1) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }

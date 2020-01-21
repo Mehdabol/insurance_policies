@@ -9,7 +9,7 @@ export class ShowInsuranceService {
   }
 
   getGridData(data) {
-    return this.service.post(this.url + `GetAllTravelInsuranceIssued`, data);
+    return this.service.post(this.url + `GetAllBTOB`, data);
 
   }
 

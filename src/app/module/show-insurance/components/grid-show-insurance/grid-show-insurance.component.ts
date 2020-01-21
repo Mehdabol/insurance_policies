@@ -43,6 +43,10 @@ export class GridShowInsuranceComponent implements OnInit {
     GridShowInsuranceComponent.self = this;
   }
 
+  onSearch() {
+    this.onGridReady(this.paramGrid);
+  }
+
 
   onGridReady(params) {
     this.paramGrid = params;
@@ -53,16 +57,16 @@ export class GridShowInsuranceComponent implements OnInit {
         const data = params.request;
         const filterData = {
           FromDate: GridShowInsuranceComponent.self.fromDate,
-          ToDate: GridShowInsuranceComponent.self.toDate, Take: data.endRow,
+          ToDate: GridShowInsuranceComponent.self.toDate,
+          Take: data.endRow,
           Skip: data.startRow
         };
         GridShowInsuranceComponent.self.service.getGridData(filterData)
           .subscribe((res: any) => {
-            debugger;
             if (data) {
-              params.successCallback(res.Data, res.Data.length);
+              params.successCallback(res.Items, res.TotalRecord);
               GridShowInsuranceComponent.self.autoSize();
-              (res.Data.length === 0 || res.Data == null) ? GridShowInsuranceComponent.self.gridApi.showNoRowsOverlay() :
+              (res.Items.length === 0 || res.Items == null) ? GridShowInsuranceComponent.self.gridApi.showNoRowsOverlay() :
                 GridShowInsuranceComponent.self.gridApi.hideOverlay();
             } else {
               params.failCallback();

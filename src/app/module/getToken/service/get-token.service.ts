@@ -9,6 +9,6 @@ export class GetTokenService {
   }
 
   getUserToken(data) {
-    return this.apiService.post(this.url + `GetToken?userName=${data.userName}&password=${data.password}`, '');
+    return this.apiService.post(this.url + `GetToken`, data);
   }
 }

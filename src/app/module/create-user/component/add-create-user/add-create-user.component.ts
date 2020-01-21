@@ -31,9 +31,8 @@ export class AddCreateUserComponent implements OnInit {
   }
 
   submittedForm(value) {
-    debugger;
     this.service.createUser(value).subscribe((res) => {
-      debugger;
+      this.alertService.success(res.Message)
       this.onBack();
     });
   }

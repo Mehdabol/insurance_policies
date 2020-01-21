@@ -3,6 +3,7 @@ import {EntranceTravelInsuranceService} from '../../service/entrance-travel-insu
 import {FormValidateService} from '../../../../core/services/Form-Validate.service';
 import {Router} from '@angular/router';
 import * as moment from 'jalali-moment';
+import {AlertService} from '../../../../core/services/alert.service';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class EntranceTravelInsuranceComponent implements OnInit {
   country: any;
   constructor(private service: EntranceTravelInsuranceService,
               private router: Router,
+              private alertService: AlertService,
               private validateForm: FormValidateService) {
   }
 
@@ -93,43 +95,48 @@ export class EntranceTravelInsuranceComponent implements OnInit {
     const token = localStorage.getItem('userToken');
     const formValue = this.formValue;
     const reqValue = this.reqRes.filter(x => x.Id = id);
+    const gender = this.genderList.filter(x => x.Text === formValue.gender);
+    const country = this.countryList.filter(x => x.Text === formValue.country);
+    const brithDate = moment(formValue.date).format('jYYYY/jMM/jDD');
+    const date = new Date();
+    const nowDate = moment(date).format('jYYYY/jMM/jDD');
     const data = {
       AuthToken: token,
-      NationalCode: 'string',
-      FirstName: '22',
-      LastName: 'صضثضص',
+      NationalCode: '061019609',
+      FirstName: formValue.name,
+      LastName: formValue.lastName,
       EnglishFirstName: formValue.name,
       EnglishLastName: formValue.lastName,
-      Gender: 1,
+      Gender: gender[0].Value,
       IdentityNo: '',
       PhoneNumber: '02186757000',
-      CellPhone: '',
+      CellPhone: '09125079975',
       FatherName: '',
       IssueCity: '',
       PostalCode: '',
-      BirthDate: '1366/03/14',
+      BirthDate: brithDate, // '1366/03/14',
       IsIranian: 0,
-      Address: 'ایران تهران فرودگاه امام خمینی',
+      Address: reqValue[0].Name, // for working app
       ForeignCode: '',
       InsuranceType: 31,
       ContractNo: 6128,
       PassportNo: formValue.passNo,
       AgentCode: 210223,
-      CoverageLimit: 10000,
+      CoverageLimit: reqValue[0].Coverage,
       TripType: 0,
       TripDurationType: 0,
-      InsuranceDuration: 7,
-      GroupDiscountType: 84,
-      Zone: 133,
-      CountryId: 591,
-      LocationZoneId: '822',
+      InsuranceDuration: formValue.duration,
+      GroupDiscountType: '84',
+      Zone: reqValue[0].Zone,
+      CountryId: country[0].Value,
+      LocationZoneId: reqValue[0].LocationZoneId,
       PrintFormName: 'SoundPrint',
       Serie: 100,
       Serial: 100,
       ClearingType: 2313,
-      DepositAccount: 'string',
+      DepositAccount: '',
       PayId: '',
-      FirstInstallmentDate: '1398/10/28',
+      FirstInstallmentDate: nowDate,
       FirstInstallmentPercent: 100,
       InstallmentPeriod: 1,
       InstallmentCount: 1,
@@ -138,6 +145,7 @@ export class EntranceTravelInsuranceComponent implements OnInit {
 
     };
     this.service.sodorBimeName(data).subscribe((res) => {
+      this.alertService.success('صدور بیمه نامه با موفقیت انجام شد');
 
     });
   }

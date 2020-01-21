@@ -37,7 +37,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.token = localStorage.getItem('token');
     this.hasLogin = this.token;
     if (this.token !== undefined && this.token !== null) {
-      debugger
       this.getSideBar();
     } else {
       this.menu = [];
@@ -61,18 +60,18 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   getItems() {
-    const val = this.menu;
-    for (let i = val.length - 1; i >= 0; i--) {
+    const menu = this.menu;
+    for (let i = menu.length - 1; i >= 0; i--) {
       this.getSunMenu(i);
     }
   }
 
   getSunMenu(i) {
-    const menu = this.sidebarValueControl;
+    const sidebar = this.sidebarValueControl;
     const has = [];
-    for (let x = menu.length - 1; x >= 0; x--) {
-      const m = this.sidebarValueControl[x].ControllerName.indexOf(this.menu[i].role);
-      const data = this.getTrue(m);
+    for (let x = sidebar.length - 1; x >= 0; x--) {
+      const index = this.sidebarValueControl[x].ControllerName.indexOf(this.menu[i].role);
+      const data = this.getTrue(index);
       has.push(data);
     }
     if (has.indexOf(true) === -1) {

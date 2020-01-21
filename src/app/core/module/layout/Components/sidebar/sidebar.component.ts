@@ -34,10 +34,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    this.getToken();
     this.token = localStorage.getItem('token');
     this.hasLogin = this.token;
-    if (this.token !== undefined || this.token !== null) {
+    if (this.token !== undefined && this.token !== null) {
+      debugger
       this.getSideBar();
     } else {
       this.menu = [];
@@ -51,17 +51,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   onClick() {
     window.location.href = 'http://faranam.net/';
-  }
-
-  getToken() {
-    // this.tokenService.getMessage().subscribe((res) => {
-    //   this.hasLogin = res;
-    //   if (res === null) {
-    //     this.menu = [];
-    //   } else {
-    //     this.menu = [...this.menu];
-    //   }
-    // });
   }
 
   getSideBar() {
@@ -82,9 +71,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
     const menu = this.sidebarValueControl;
     const has = [];
     for (let x = menu.length - 1; x >= 0; x--) {
-      // debugger;
-      // console.log('this.sidebarValueControl[i].ControllerName', this.sidebarValueControl[i].ControllerName);
-      // console.log('this.menu[x].role', this.menu[i].role);
       const m = this.sidebarValueControl[x].ControllerName.indexOf(this.menu[i].role);
       const data = this.getTrue(m);
       has.push(data);
@@ -92,7 +78,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
     if (has.indexOf(true) === -1) {
       this.menu.splice(i, 1);
     }
-    // console.log(this.menu);
   }
 
   getTrue(val) {

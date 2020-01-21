@@ -8,6 +8,7 @@ import {PageShowInsuranceComponent} from './module/show-insurance/page/page-show
 import {PageCreateUserComponent} from './module/create-user/page/page-create-user/page-create-user.component';
 import {AddCreateUserComponent} from './module/create-user/component/add-create-user/add-create-user.component';
 import {PageGetTokenComponent} from './module/getToken/page/page-get-token/page-get-token.component';
+import {AuthGuard} from './core/guard/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -21,13 +22,12 @@ const routes: Routes = [
     component: BaseLayoutComponent,
     children: [
       {path: 'login', component: LoginComponent},
-      {path: 'dashboard', component: PageDahsboardComponent},
-      // , canActivate: [AuthGuard]
-      {path: 'entrance-travel-insurance', component: EntranceTravelInsuranceComponent},
-      {path: 'show-insurance', component: PageShowInsuranceComponent},
-      {path: 'create-user', component: PageCreateUserComponent},
-      {path: 'add-create-user', component: AddCreateUserComponent},
-      {path: 'get-token', component: PageGetTokenComponent},
+      {path: 'dashboard', component: PageDahsboardComponent, canActivate: [AuthGuard]},
+      {path: 'entrance-travel-insurance', component: EntranceTravelInsuranceComponent, canActivate: [AuthGuard]},
+      {path: 'show-insurance', component: PageShowInsuranceComponent, canActivate: [AuthGuard]},
+      {path: 'create-user', component: PageCreateUserComponent, canActivate: [AuthGuard]},
+      {path: 'add-create-user', component: AddCreateUserComponent, canActivate: [AuthGuard]},
+      {path: 'get-token', component: PageGetTokenComponent, canActivate: [AuthGuard]},
     ]
   },
 ];

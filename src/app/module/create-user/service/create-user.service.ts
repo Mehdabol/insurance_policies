@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class CreateUserService {
-  url = 'authenticationwebservice/api/Authenticate/';
+  url = 'InsuranceSrv/api/User/';
 
   constructor(private service: ApiService<any>) {
   }

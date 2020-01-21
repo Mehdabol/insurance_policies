@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class ShowInsuranceService {
-  url = 'InsuranceSrv/api/Insurance/';
+  url = 'InsuranceSrv/api/BTOB/';
 
   constructor(private service: ApiService<any>) {
   }

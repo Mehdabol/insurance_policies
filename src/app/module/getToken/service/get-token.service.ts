@@ -3,7 +3,7 @@ import {ApiService} from '../../../core/http/api.service';
 
 @Injectable()
 export class GetTokenService {
-  url = 'InsuranceSrv/api/Insurance/';
+  url = 'InsuranceSrv/api/Common/';
 
   constructor(private apiService: ApiService<any>) {
   }

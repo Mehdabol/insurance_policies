@@ -58,14 +58,13 @@ export class GridCreateUserComponent implements OnInit {
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        const filterData = {take: data.endRow, skip: data.startRow};
+        const filterData = {Take: data.endRow, Skip: data.startRow};
         GridCreateUserComponent.self.service.getGridData(filterData)
           .subscribe((res: any) => {
             if (data) {
-              debugger;
-              params.successCallback(res.Data, res.Data.length);
+              params.successCallback(res.Items, res.TotalRecord);
               // GridCreateUserComponent.self.autoSize();
-              (res.Data.length === 0 || res.Data == null) ? GridCreateUserComponent.self.gridApi.showNoRowsOverlay() :
+              (res.Items.length === 0 || res.Items == null) ? GridCreateUserComponent.self.gridApi.showNoRowsOverlay() :
                 GridCreateUserComponent.self.gridApi.hideOverlay();
             } else {
               params.failCallback();
@@ -86,31 +85,20 @@ export class GridCreateUserComponent implements OnInit {
         field: 'bid',
         hide: true
       }, {
-        headerName: 'نام و نام خانوادگی',
-        field: 'Name',
-
+        headerName: 'نام ',
+        field: 'FirstName',
       }, {
-        headerName: 'شماره پاسپورت',
-        field: 'Vazeiyat',
+        headerName: ' نام خانوادگی',
+        field: 'LastName',
       }, {
-        headerName: 'مدت اقامت(روز)',
-        field: 'Etebar',
+        headerName: 'نام پدر',
+        field: 'FatherName',
       }, {
-        headerName: 'شماره بیمه نامه',
-        field: 'ShomareBimeName',
+        headerName: 'تاریخ تولد',
+        field: 'BirthDate',
       }, {
-        headerName: 'وضعیت ابطال',
-        field: 'OnlineCode',
-      },
-      {
-        headerName: 'کاربر ثبت',
-        field: 'OnlineCode',
-      }, {
-        headerName: 'زمان ثبت',
-        field: 'OnlineCode',
-      }, {
-        headerName: 'چاپ',
-        field: 'OnlineCode',
+        headerName: 'شماره تلفن',
+        field: 'MobileNumber',
       },
     ];
     this.cacheBlockSize = 100;

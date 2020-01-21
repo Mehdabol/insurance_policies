@@ -34,14 +34,15 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    // this.getToken();
-    // this.token = localStorage.getItem('token');
-    // this.hasLogin = this.token;
-    // if (this.token === undefined || this.token === null) {
-    //   this.menu = [];
-    // } else {
-    //   this.menu = [...this.menu];
-    // }
+    this.getToken();
+    this.token = localStorage.getItem('token');
+    this.hasLogin = this.token;
+    if (this.token === undefined || this.token === null) {
+      this.menu = [];
+    } else {
+      this.getSideBar();
+      this.menu = [...this.menu];
+    }
   }
 
   ngOnDestroy(): void {
@@ -61,6 +62,12 @@ export class SidebarComponent implements OnInit, OnDestroy {
       } else {
         this.menu = [...this.menu];
       }
+    });
+  }
+
+  getSideBar() {
+    this.tokenService.getSidebard().subscribe(res => {
+      debugger;
     });
   }
 

@@ -10,7 +10,7 @@ export class CreateUserService {
 
 
   getGridData(data) {
-    return this.service.get(this.url + `GetAllUsers?Take=${data.take}&Skip=${data.skip}`,);
+    return this.service.post(this.url + `GetAllUsers` , data);
 
   }
   createUser(data) {

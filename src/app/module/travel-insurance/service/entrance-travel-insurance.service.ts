@@ -4,7 +4,7 @@ import {ApiService} from '../../../core/http/api.service';
 @Injectable()
 export class EntranceTravelInsuranceService {
   url = 'InsuranceSrv/api/Inquiry/';
-  InsuranceUrl = 'InsuranceSrv/api/Insurance/';
+  InsuranceUrl = 'InsuranceSrv/api/BTOB/';
   urlCommon = 'InsuranceSrv/api/Common/';
 
   constructor(private apiService: ApiService<any>) {
